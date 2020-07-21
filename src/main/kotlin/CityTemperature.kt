@@ -1,5 +1,4 @@
 import WeatherCondition.*
-import java.lang.Exception
 
 fun main() {
     val name = getCityName()
@@ -12,16 +11,8 @@ fun main() {
 fun getCityName() =
     getLine("Введите название города: ")
 
-fun getCityTemperature(): Int {
-    while (true) {
-        try {
-            val line = getLine("Введите температуру в городе: ")
-            return line.toInt()
-        } catch (e: Exception) {
-            println(ERROR_MESSAGE)
-        }
-    }
-}
+fun getCityTemperature() =
+    getParsedLineToInt("Введите температуру в городе: ")
 
 fun getCityReadableTemperature(temperature: Int) =
     when (temperature) {
